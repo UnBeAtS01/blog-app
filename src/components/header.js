@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   component: {
-    background: "#ffffff",
-    color: "black",
+    background: "rgba( 9, 25, 47, 0.95 )",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: "blur( 18px )",
+    WebkitBackdropFilter: "blur( 18px )",
   },
   container: {
     justifyContent: "center",
@@ -17,6 +19,10 @@ const useStyles = makeStyles({
     textDecoration: "none",
     color: "inherit",
   },
+  eachele: {
+    color: "#42A19A",
+    fontWeight: 1000,
+  },
 });
 
 function Header(props) {
@@ -26,11 +32,11 @@ function Header(props) {
     <AppBar className={classes.component}>
       <Toolbar className={classes.container}>
         <Link to={"/"} className={classes.link}>
-          <Typography> Home</Typography>
+          <Typography className={classes.eachele}> Home</Typography>
         </Link>
-        <Typography>About</Typography>
-        <Typography>Contact</Typography>
-        <Typography>LOGIN</Typography>
+        <Typography className={classes.eachele}>About</Typography>
+        <Typography className={classes.eachele}>Contact</Typography>
+        <Typography className={classes.eachele}>LOGIN</Typography>
       </Toolbar>
     </AppBar>
   );

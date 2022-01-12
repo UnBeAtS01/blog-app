@@ -5,8 +5,12 @@ const useStyle = makeStyles({
   container: {
     height: 350,
     margin: 10,
-    borderRadius: 10,
-    border: "1px solid black",
+
+    background: "rgba( 23, 42, 70, 0.85 )",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: "blur( 14px )",
+    WebkitBackdropFilter: "blur( 14px )",
+    borderRadius: "10px",
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
@@ -21,16 +25,27 @@ const useStyle = makeStyles({
     borderRadius: "10px 10px 0 0",
   },
   text: {
-    color: "#878787",
     fontSize: 12,
+    marginRight: "auto",
+    color: "grey",
+  },
+  text2: {
+    fontSize: 12,
+    marginTop: "auto",
+    color: "grey",
   },
   heading: {
     fontSize: 18,
-    textAlign: "center",
+    fontWeight: 500,
+    color: "#C5CFEF",
+    marginTop: 30,
+    borderBottom: "1px solid #4DBBAE",
+    marginBottom: 20,
   },
   detail: {
     fontSize: 14,
     wordBreak: "break-word",
+    color: "#8A96B4",
   },
 });
 const Post = ({ post }) => {
@@ -44,14 +59,21 @@ const Post = ({ post }) => {
   return (
     <Box className={classes.container}>
       <img src={url} alt="blogimage" className={classes.image} />
-      <Typography className={classes.text}>{post.categories}</Typography>
-      <Typography className={classes.heading}>{post.title}</Typography>
+
+      <Typography className={classes.heading}>
+        {addelepses(post.title, 40)}
+      </Typography>
       <Typography className={classes.text}>
-        {addelepses(post.username, 40)}
+        <span style={{ fontWeight: "600" }}>author: </span>
+        {post.username}
+      </Typography>
+      <Typography className={classes.text}>
+        {new Date(post.createdDate).toDateString()}
       </Typography>
       <Typography className={classes.detail}>
-        {addelepses(post.description, 100)}
+        {addelepses(post.description, 180)}
       </Typography>
+      <Typography className={classes.text2}>{post.categories}</Typography>
     </Box>
   );
 };

@@ -27,7 +27,7 @@ function Banner(props) {
   return (
     <Box className={classes.image}>
       <Typography>Blog</Typography>
-      <Typography>code for learning</Typography>
+      <Typography>LEARNING CURVE</Typography>
     </Box>
   );
 }

@@ -11,7 +11,7 @@ import CreateView from "./components/post/CreateView";
 import UpdateView from "./components/post/updateView";
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter style={{ background: "#111111" }}>
       <Header />
       <Box style={{ marginTop: 100 }}>
         <Switch>

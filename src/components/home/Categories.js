@@ -14,16 +14,27 @@ import { CategoriesData } from "../../constants/data.js";
 const useStyle = makeStyles({
   create: {
     margin: 20,
-    color: "#fff",
-    background: "#6495ED",
+    color: "#429F99",
+    backgroundColor: "#172A46",
+    fontWeight: 400,
     width: "86%",
+    "&:hover": {
+      color: "#172A46",
+      backgroundColor: "#429F99",
+    },
   },
   table: {
-    border: "1px solid rgba(224,224,224,1)",
+    background: "rgba( 23, 42, 70, 0.9 )",
+    boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
+    backdropFilter: "blur( 17px )",
+    WebkitBackdropFilter: "blur( 17px )",
+    borderRadius: "10px",
   },
   link: {
     textDecoration: "none",
-    color: "inherit",
+    color: "#4DBBAE",
+    textAlign: "center",
+    fontWeight: 600,
   },
 });
 const Categories = (props) => {
@@ -52,7 +63,7 @@ const Categories = (props) => {
               CategoriesData.map((ele) => (
                 <TableRow>
                   {" "}
-                  <TableCell>
+                  <TableCell style={{ borderBottom: "none" }}>
                     <Link className={classes.link} to={`/?category=${ele}`}>
                       {ele}
                     </Link>
