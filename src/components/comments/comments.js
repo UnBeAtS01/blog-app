@@ -15,6 +15,16 @@ const useStyle = makeStyles({
   },
   textarea: {
     width: "100%",
+    color: "#09192F",
+  },
+  postB: {
+    backgroundColor: "#172A46",
+    color: "#60EDDA",
+    fontWeight: 600,
+    "&:hover": {
+      color: "#172A46",
+      backgroundColor: "#60EDDA",
+    },
   },
 });
 const intialval = {
@@ -31,10 +41,9 @@ function Comments({ post }) {
     const getData = async () => {
       const res = await getcomments(post._id);
       setfetchComments(res);
-      console.log(commentall);
     };
     getData();
-  }, [post, commentall]);
+  }, [post]);
   const handleChange = (e) => {
     setComment({
       ...comment,
@@ -54,7 +63,11 @@ function Comments({ post }) {
         minRows={5}
         onChange={(e) => handleChange(e)}
       />
-      <Button variant="contained" color="primary" onClick={() => postcomment()}>
+      <Button
+        variant="contained"
+        className={classes.postB}
+        onClick={() => postcomment()}
+      >
         Post
       </Button>
       <Box>

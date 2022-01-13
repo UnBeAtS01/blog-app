@@ -31,6 +31,9 @@ const useStyle = makeStyles((theme) => ({
   textField: {
     margin: "0 30px",
     fontSize: 25,
+    color: "#3A8F8C",
+    backgroundColor: "#172A46",
+    fontWeight: 600,
     //flex: 1,
   },
   textarea: {
@@ -41,6 +44,14 @@ const useStyle = makeStyles((theme) => ({
     "&:focus-visible": {
       outline: "none",
     },
+  },
+  icon: {
+    border: "1px solid black",
+    padding: 5,
+    borderRadius: "10px",
+    color: "#3A8F8C",
+    backgroundColor: "#172A46",
+    fontWeight: 600,
   },
 }));
 
@@ -97,7 +108,7 @@ const UpdateView = ({ match }) => {
       <img src={url} alt="create-pic" className={classes.image} />
       <FormControl className={classes.form}>
         <label htmlFor="fileInput">
-          <AddCircle color="action" fontSize="large" />
+          <AddCircle className={classes.icon} fontSize="large" />
         </label>
 
         <input
@@ -105,6 +116,7 @@ const UpdateView = ({ match }) => {
           type="file"
           id="fileInput"
           style={{ display: "none" }}
+          className={classes.icon}
         />
 
         <InputBase
@@ -117,7 +129,7 @@ const UpdateView = ({ match }) => {
         <Button
           variant="contained"
           style={{ marginLeft: "auto" }}
-          color="primary"
+          className={classes.icon}
           onClick={() => updateBlog()}
         >
           Update

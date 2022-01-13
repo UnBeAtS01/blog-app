@@ -25,15 +25,18 @@ const useStyle = makeStyles((theme) => ({
     border: "1px solid black",
     padding: 5,
     borderRadius: "10px",
+    color: "#3A8F8C",
+    backgroundColor: "#172A46",
   },
   heading: {
     fontSize: 30,
     fontWeight: 600,
     textAlign: "center",
     margin: "50px 0 10px 0",
+    color: "#BAC4E4",
   },
   subheading: {
-    color: "#878787",
+    color: "#BAC4E4",
     display: "flex",
     margin: "20px 0",
     [theme.breakpoints.down("sm")]: {
@@ -72,15 +75,19 @@ const DetailView = () => {
           to={`/update/${post._id}`}
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <Edit className={classes.icon} color="primary" />
+          <Edit className={classes.icon} />
         </Link>
         <Delete
           onClick={() => deleteBlog()}
           className={classes.icon}
-          color="error"
+          color="#3A8F8C"
         />
       </Box>
-      <Typography className={classes.heading}>{post.title}</Typography>
+      <Typography className={classes.heading}>
+        <Box component="span" style={{ borderBottom: "1px solid #3A8F8C" }}>
+          {post.title ? `${post.title.toUpperCase()}` : ""}
+        </Box>
+      </Typography>
       <Box className={classes.subheading}>
         <Link to={`/?username=${post.username}`} className={classes.link}>
           <Typography>
@@ -92,7 +99,9 @@ const DetailView = () => {
           {new Date(post.createdDate).toDateString()}
         </Typography>
       </Box>
-      <Typography>{post.description}</Typography>
+      <Typography style={{ color: "#ADB8D7", fontWeight: 200, fontSize: 18 }}>
+        {post.description}
+      </Typography>
       <Comments post={post} />
     </Box>
   );

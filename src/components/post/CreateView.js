@@ -33,6 +33,10 @@ const useStyle = makeStyles((theme) => ({
   textField: {
     margin: "0 30px",
     fontSize: 25,
+    color: "#3A8F8C",
+    backgroundColor: "#172A46",
+    fontWeight: 600,
+
     //flex: 1,
   },
   textarea: {
@@ -43,6 +47,18 @@ const useStyle = makeStyles((theme) => ({
     "&:focus-visible": {
       outline: "none",
     },
+  },
+  icon: {
+    border: "1px solid black",
+    padding: 5,
+    borderRadius: "10px",
+    color: "#3A8F8C",
+    backgroundColor: "#172A46",
+    fontWeight: 600,
+  },
+  root: {
+    background: "#172A46",
+    color: "#3A8F8C",
   },
 }));
 const intialValues = {
@@ -112,7 +128,7 @@ const CreateView = (props) => {
       <img src={url} alt="create-pic" className={classes.image} />
       <FormControl className={classes.form}>
         <label htmlFor="fileInput">
-          <AddCircle color="action" fontSize="large" />
+          <AddCircle className={classes.icon} fontSize="large" />
         </label>
 
         <input
@@ -131,16 +147,16 @@ const CreateView = (props) => {
         <Button
           variant="contained"
           style={{ marginLeft: "auto" }}
-          color="primary"
           onClick={() => savePost()}
+          className={classes.icon}
         >
           PUBLISH
         </Button>
       </FormControl>
       <TextField
-        id="outlined-select-currency"
         select
         label="Select"
+        className={classes.root}
         value={post.categories}
         onChange={(e) => handleChange(e)}
         helperText="Please select category"
