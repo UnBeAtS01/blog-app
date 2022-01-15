@@ -57,7 +57,9 @@ function Comments({ post }) {
   };
   return (
     <Box className={classes.components}>
-      <Typography>COMMENTS</Typography>
+      <Typography style={{ color: "#60EDDA", fontWeight: 600 }}>
+        COMMENTS
+      </Typography>
       <TextareaAutosize
         className={classes.textarea}
         minRows={5}

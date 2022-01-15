@@ -51,7 +51,7 @@ const useStyle = makeStyles({
 const Post = ({ post }) => {
   const url = post.picture
     ? post.picture
-    : "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80";
+    : "https://www.teahub.io/photos/full/5-59823_black-blue-black-and-blue-phone.jpg";
   const classes = useStyle();
   const addelepses = (data, limit) => {
     return data.length > limit ? data.substr(0, limit) + "....." : data;
@@ -71,7 +71,7 @@ const Post = ({ post }) => {
         {new Date(post.createdDate).toDateString()}
       </Typography>
       <Typography className={classes.detail}>
-        {addelepses(post.description, 180)}
+        {addelepses(post.description, 60)}
       </Typography>
       <Typography className={classes.text2}>{post.categories}</Typography>
     </Box>
